@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="i3a-KM-U3V">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="i3a-KM-U3V">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,44 +22,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Transcribe the audio file to view a transcription..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e6q-su-WmN">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="s3A-j2-V2X">
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poG-DX-X1Z">
-                                        <state key="normal" title="Play Audio File"/>
-                                        <connections>
-                                            <action selector="didPressPlayButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lLf-sf-jdZ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGz-tu-bMR">
-                                        <state key="normal" title="Transcribe Audio File"/>
-                                        <connections>
-                                            <action selector="didPressTranscribeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bh0-iH-tGV"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x0t-ID-e6C">
+                                <rect key="frame" x="0.0" y="192" width="375" height="283"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="e6q-su-WmN" secondAttribute="leading" id="H43-rz-NW7"/>
-                            <constraint firstItem="s3A-j2-V2X" firstAttribute="top" secondItem="e6q-su-WmN" secondAttribute="bottom" constant="8" id="IZF-Qv-h5S"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="s3A-j2-V2X" secondAttribute="trailing" id="TdT-GN-Loy"/>
-                            <constraint firstItem="e6q-su-WmN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Z3P-oF-5Sm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="e6q-su-WmN" secondAttribute="trailing" id="e0a-hz-3ge"/>
-                            <constraint firstItem="s3A-j2-V2X" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="nbE-ud-x6z"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="s3A-j2-V2X" secondAttribute="bottom" constant="8" id="vkq-pV-ofp"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Audio File" id="ZCx-Wt-enI"/>
                     <navigationItem key="navigationItem" id="Q5z-l6-rXq"/>
                     <connections>
-                        <outlet property="playButton" destination="poG-DX-X1Z" id="beB-yd-Zfm"/>
-                        <outlet property="textView" destination="e6q-su-WmN" id="3kL-lH-5ta"/>
+                        <outlet property="patientPicker" destination="x0t-ID-e6C" id="chN-4k-gie"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -75,31 +51,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Start the microphone to view a transcription..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pgK-ou-ijN">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Start the microphone to view a transcription..." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgK-ou-ijN">
+                                <rect key="frame" x="0.0" y="64" width="376" height="205.5"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yb6-aG-SOj">
+                                <rect key="frame" x="0.0" y="565" width="376" height="53"/>
+                                <color key="backgroundColor" red="0.89660772519999998" green="0.89227628690000005" blue="0.90093916350000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="G4a-ce-DxM"/>
+                                </constraints>
                                 <state key="normal" title="Start Microphone"/>
                                 <connections>
                                     <action selector="didPressMicrophoneButton:" destination="Hv0-da-b3m" eventType="touchUpInside" id="hnX-Qw-eht"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kDt-18-Uzf" customClass="SwiftSiriWaveformView" customModule="Speech_to_Text" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="422" width="376" height="143"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="143" id="qf3-Qh-bQt"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXG-64-tbL" userLabel="s2View">
+                                <rect key="frame" x="0.0" y="269.5" width="376" height="155.5"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.8078432083" green="0.35355706190000002" blue="0.3584613465" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="pgK-ou-ijN" secondAttribute="leading" id="6hI-fq-6K0"/>
-                            <constraint firstItem="yb6-aG-SOj" firstAttribute="top" secondItem="pgK-ou-ijN" secondAttribute="bottom" constant="8" id="92w-02-Z6g"/>
-                            <constraint firstItem="P4y-Nd-I1n" firstAttribute="top" secondItem="yb6-aG-SOj" secondAttribute="bottom" constant="8" id="K4u-gS-vWk"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="pgK-ou-ijN" secondAttribute="leading" constant="16" id="6hI-fq-6K0"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="kDt-18-Uzf" secondAttribute="leading" constant="16" id="799-0L-aLj"/>
+                            <constraint firstItem="P4y-Nd-I1n" firstAttribute="top" secondItem="yb6-aG-SOj" secondAttribute="bottom" id="AwE-Hx-n65"/>
+                            <constraint firstItem="bXG-64-tbL" firstAttribute="centerX" secondItem="9sS-qN-wNi" secondAttribute="centerX" id="G5j-dK-IdZ"/>
+                            <constraint firstItem="pgK-ou-ijN" firstAttribute="height" secondItem="bXG-64-tbL" secondAttribute="height" constant="50" id="GLm-li-ezv"/>
+                            <constraint firstItem="pgK-ou-ijN" firstAttribute="width" secondItem="bXG-64-tbL" secondAttribute="width" id="Up2-25-6lZ"/>
+                            <constraint firstItem="yb6-aG-SOj" firstAttribute="leading" secondItem="9sS-qN-wNi" secondAttribute="leadingMargin" constant="-16" id="VpE-Kf-sbv"/>
                             <constraint firstItem="yb6-aG-SOj" firstAttribute="centerX" secondItem="9sS-qN-wNi" secondAttribute="centerX" id="Zha-nX-K5V"/>
-                            <constraint firstItem="pgK-ou-ijN" firstAttribute="top" secondItem="jUg-zF-j0L" secondAttribute="bottom" constant="8" id="ge5-wO-XcL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="pgK-ou-ijN" secondAttribute="trailing" id="wD3-kn-d0d"/>
+                            <constraint firstItem="bXG-64-tbL" firstAttribute="top" secondItem="pgK-ou-ijN" secondAttribute="bottom" id="bAq-u0-D0C"/>
+                            <constraint firstItem="pgK-ou-ijN" firstAttribute="top" secondItem="jUg-zF-j0L" secondAttribute="bottom" id="ge5-wO-XcL"/>
+                            <constraint firstItem="yb6-aG-SOj" firstAttribute="top" secondItem="kDt-18-Uzf" secondAttribute="bottom" id="iXo-CB-8FG"/>
+                            <constraint firstItem="kDt-18-Uzf" firstAttribute="top" secondItem="bXG-64-tbL" secondAttribute="bottom" constant="-3" id="jOK-Za-Sl0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kDt-18-Uzf" secondAttribute="trailing" constant="-17" id="ux8-Ss-4An"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yb6-aG-SOj" secondAttribute="trailing" constant="-17" id="vaH-gR-HhD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pgK-ou-ijN" secondAttribute="trailing" constant="-17" id="wD3-kn-d0d"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Microphone" id="GLu-xz-GM9"/>
                     <connections>
+                        <outlet property="audioView" destination="kDt-18-Uzf" id="iXK-cI-wef"/>
                         <outlet property="microphoneButton" destination="yb6-aG-SOj" id="OYu-uo-i2n"/>
+                        <outlet property="s2View" destination="bXG-64-tbL" id="k5t-o7-Veq"/>
                         <outlet property="textView" destination="pgK-ou-ijN" id="zhh-hK-NJn"/>
                     </connections>
                 </viewController>
@@ -123,13 +131,14 @@
             </objects>
             <point key="canvasLocation" x="1076" y="793"/>
         </scene>
-        <!--Speech to Text-->
+        <!--DeepScribe-->
         <scene sceneID="atO-dP-A4x">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="hB3-Cb-uKI" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Speech to Text" id="RA1-CE-FtY"/>
+                    <navigationItem key="navigationItem" title="DeepScribe" id="RA1-CE-FtY"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="7L1-xw-aX6">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

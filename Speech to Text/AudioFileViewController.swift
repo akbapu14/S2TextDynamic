@@ -18,8 +18,19 @@ import UIKit
 import AVFoundation
 import SpeechToTextV1
 
-class AudioFileViewController: UIViewController, AVAudioPlayerDelegate {
+class AudioFileViewController: UIViewController, AVAudioPlayerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+    @available(iOS 2.0, *)
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
 
+    @available(iOS 2.0, *)
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 20
+    }
+
+
+    @IBOutlet var patientPicker: UIPickerView!
     var player: AVAudioPlayer!
     var speechToText: SpeechToText!
     var speechSample: URL!
@@ -29,19 +40,23 @@ class AudioFileViewController: UIViewController, AVAudioPlayerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        speechSample = Bundle.main.url(forResource: "SpeechSample", withExtension: "wav")
-        player = try! AVAudioPlayer(contentsOf: speechSample)
-        speechToText = SpeechToText(
-            username: Credentials.SpeechToTextUsername,
-            password: Credentials.SpeechToTextPassword
-        )
-        player.delegate = self
+//        speechSample = Bundle.main.url(forResource: "SpeechSample", withExtension: "wav")
+//        player = try! AVAudioPlayer(contentsOf: speechSample)
+//        speechToText = SpeechToText(
+//            username: Credentials.SpeechToTextUsername,
+//            password: Credentials.SpeechToTextPassword
+//        )
+//        player.delegate = self
+        patientPicker.dataSource = self
+        patientPicker.delegate = self
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         playButton.setTitle("Play Audio File", for: .normal)
     }
-    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "Patient " + String(row)
+    }
     @IBAction func didPressPlayButton(_ sender: UIButton) {
         if !player.isPlaying {
             playButton.setTitle("Stop Audio File", for: .normal)
@@ -58,7 +73,7 @@ class AudioFileViewController: UIViewController, AVAudioPlayerDelegate {
         settings.continuous = true
         settings.interimResults = true
         let failure = { (error: Error) in print(error) }
-        speechToText.recognize(audio: speechSample, settings: settings, failure: failure) {
+        speechToText.recognize(audio: speechSample, settings: settings, customizationID: "ea900f40-6a5a-11e7-95bd-790dbc5342a7", failure: failure) {
             results in
             self.textView.text = results.bestTranscript
         }

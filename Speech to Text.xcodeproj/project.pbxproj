@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41BD7C281F209319001E0E2E /* SwiftSiriWaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BD7C271F209319001E0E2E /* SwiftSiriWaveformView.swift */; };
 		7AE28FD31DD10D6900A663ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE28FD21DD10D6900A663ED /* AppDelegate.swift */; };
 		7AE28FD51DD10D6900A663ED /* AudioFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AE28FD41DD10D6900A663ED /* AudioFileViewController.swift */; };
 		7AE28FD81DD10D6900A663ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE28FD61DD10D6900A663ED /* Main.storyboard */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		419161E41F209913003751F0 /* WaveformView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WaveformView.framework; path = Carthage/Build/iOS/WaveformView.framework; sourceTree = "<group>"; };
+		41BD7C271F209319001E0E2E /* SwiftSiriWaveformView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSiriWaveformView.swift; sourceTree = "<group>"; };
 		7AE28FCF1DD10D6900A663ED /* Speech to Text.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Speech to Text.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AE28FD21DD10D6900A663ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AE28FD41DD10D6900A663ED /* AudioFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +79,7 @@
 				7AE28FD61DD10D6900A663ED /* Main.storyboard */,
 				7AE28FEA1DD1214000A663ED /* SpeechSample.wav */,
 				7AE28FEE1DD128D400A663ED /* MicrophoneViewController.swift */,
+				41BD7C271F209319001E0E2E /* SwiftSiriWaveformView.swift */,
 			);
 			path = "Speech to Text";
 			sourceTree = "<group>";
@@ -83,6 +87,7 @@
 		7AE28FE41DD1108500A663ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				419161E41F209913003751F0 /* WaveformView.framework */,
 				7AE28FE51DD1108500A663ED /* RestKit.framework */,
 				7AE28FE61DD1108500A663ED /* SpeechToTextV1.framework */,
 			);
@@ -122,6 +127,7 @@
 				TargetAttributes = {
 					7AE28FCE1DD10D6900A663ED = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 798AZH6TJR;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -183,6 +189,7 @@
 			files = (
 				7AE28FEF1DD128D400A663ED /* MicrophoneViewController.swift in Sources */,
 				7AE28FED1DD121CE00A663ED /* Credentials.swift in Sources */,
+				41BD7C281F209319001E0E2E /* SwiftSiriWaveformView.swift in Sources */,
 				7AE28FD51DD10D6900A663ED /* AudioFileViewController.swift in Sources */,
 				7AE28FD31DD10D6900A663ED /* AppDelegate.swift in Sources */,
 			);
@@ -307,13 +314,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 798AZH6TJR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Speech to Text/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ibm.watson.developer-cloud.Speech-to-Text";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.instascribe.Speech-to-Text";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -323,13 +332,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 798AZH6TJR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Speech to Text/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ibm.watson.developer-cloud.Speech-to-Text";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.instascribe.Speech-to-Text";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

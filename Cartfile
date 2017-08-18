@@ -1,1 +1,2 @@
 github "watson-developer-cloud/ios-sdk"
+github "jyunderwood/WaveformView-iOS" ~> 2.0
